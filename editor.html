@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studies Editor - Dashboard</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="stylesheet" href="assets/css/editor.css">
+</head>
+<body>
+    <!-- Passcode Gate -->
+    <div class="passcode-gate" id="passcodeGate">
+        <div class="passcode-container">
+            <div class="passcode-card">
+                <h1>Access Required</h1>
+                <p>Enter the dashboard passcode to continue</p>
+                <form id="passcodeForm">
+                    <input type="password" id="passcodeInput" placeholder="Enter passcode" required>
+                    <button type="submit" class="btn btn-primary">Access Dashboard</button>
+                </form>
+                <div class="passcode-error" id="passcodeError">
+                    Incorrect passcode. Please try again.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dashboard -->
+    <div class="dashboard" id="dashboard" style="display: none;">
+        <header class="dashboard-header">
+            <div class="container">
+                <h1>@thekzbn Studies Dashboard</h1>
+                <button class="btn btn-secondary" id="logoutBtn">Logout</button>
+            </div>
+        </header>
+
+        <main class="dashboard-main">
+            <div class="container">
+                <!-- Upload Section -->
+                <section class="upload-section">
+                    <h2>Upload New Study</h2>
+                    <form id="uploadForm" class="upload-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="studyTitle">Title *</label>
+                                <input type="text" id="studyTitle" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="studyTag">Tag *</label>
+                                <select id="studyTag" required>
+                                    <option value="">Select a tag</option>
+                                    <option value="Completely AI">Completely AI</option>
+                                    <option value="AI enhanced">AI Enhanced</option>
+                                    <option value="AI grammared">AI Grammared</option>
+                                    <option value="AI cited">AI Cited</option>
+                                    <option value="Completely me">Completely Me</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="studyDescription">Description</label>
+                            <textarea id="studyDescription" rows="3" placeholder="Brief description of the study..."></textarea>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="studyPdf">PDF File *</label>
+                                <input type="file" id="studyPdf" accept=".pdf" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="studyMd">Markdown File *</label>
+                                <input type="file" id="studyMd" accept=".md" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="studyDocx">Word File *</label>
+                                <input type="file" id="studyDocx" accept=".docx" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="studyDate">Date</label>
+                                <input type="date" id="studyDate">
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" id="uploadBtn">
+                            <span class="btn-text">Upload Study</span>
+                            <div class="btn-loading" style="display: none;">
+                                <div class="spinner"></div>
+                                Uploading...
+                            </div>
+                        </button>
+                    </form>
+                </section>
+
+                <!-- Studies Management -->
+                <section class="management-section">
+                    <div class="section-header">
+                        <h2>Manage Studies</h2>
+                        <div class="section-actions">
+                            <button class="btn btn-secondary" id="refreshBtn">Refresh</button>
+                            <button class="btn btn-accent" id="bulkDownloadBtn">Bulk Download</button>
+                        </div>
+                    </div>
+
+                    <div class="studies-list" id="studiesList">
+                        <!-- Studies will be populated by JavaScript -->
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Edit Modal -->
+    <div class="modal" id="editModal" aria-hidden="true">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Edit Study</h2>
+                <button class="modal-close" id="editModalClose">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="editForm">
+                    <input type="hidden" id="editStudyId">
+                    <div class="form-group">
+                        <label for="editTitle">Title *</label>
+                        <input type="text" id="editTitle" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editDescription">Description</label>
+                        <textarea id="editDescription" rows="3"></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="editTag">Tag *</label>
+                            <select id="editTag" required>
+                                <option value="Completely AI">Completely AI</option>
+                                <option value="AI enhanced">AI Enhanced</option>
+                                <option value="AI grammared">AI Grammared</option>
+                                <option value="AI cited">AI Cited</option>
+                                <option value="Completely me">Completely Me</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="editDate">Date</label>
+                            <input type="date" id="editDate">
+                        </div>
+                    </div>
+                    <div class="modal-actions">
+                        <button type="button" class="btn btn-secondary" id="editCancelBtn">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div class="notification" id="notification">
+        <div class="notification-content">
+            <span class="notification-message"></span>
+            <button class="notification-close">&times;</button>
+        </div>
+    </div>
+
+    <!-- Firebase SDKs -->
+    <script type="module" src="assets/js/firebase.js"></script>
+    <script type="module" src="assets/js/editor.js"></script>
+</body>
+</html>
