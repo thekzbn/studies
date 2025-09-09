@@ -20,14 +20,10 @@
             <!-- Filter Controls -->
             <section class="filters" aria-label="Filter studies">
                 <div class="filter-group">
-                    <label class="filter-label">Filter by Tag:</label>
-                    <div class="tag-filters-only">
-                        <button class="tag-filter active" data-tag="all">All Tags</button>
-                        <button class="tag-filter" data-tag="Completely AI">Completely AI</button>
-                        <button class="tag-filter" data-tag="AI enhanced">AI Enhanced</button>
-                        <button class="tag-filter" data-tag="AI grammared">AI Grammared</button>
-                        <button class="tag-filter" data-tag="AI cited">AI Cited</button>
-                        <button class="tag-filter" data-tag="Completely me">Completely Me</button>
+                    <label class="filter-label" for="searchInput">Search Studies:</label>
+                    <div class="search-container">
+                        <input type="text" id="searchInput" class="search-input" placeholder="Search by title, description, or tag..." />
+                        <button type="button" id="clearSearch" class="search-clear" style="display: none;">&times;</button>
                     </div>
                 </div>
             </section>

@@ -109,6 +109,48 @@ h1, h2, h3, h4, h5, h6 {
     gap: 0.5rem;
 }
 
+/* Search */
+.search-container {
+    position: relative;
+    max-width: 500px;
+}
+
+.search-input {
+    width: 100%;
+    padding: 0.75rem 2.5rem 0.75rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    font-size: 1rem;
+    transition: var(--transition);
+    background: var(--bg);
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(214, 173, 96, 0.1);
+}
+
+.search-clear {
+    position: absolute;
+    right: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 1.25rem;
+    cursor: pointer;
+    color: var(--text-muted);
+    padding: 0.25rem;
+    border-radius: 4px;
+    transition: var(--transition);
+}
+
+.search-clear:hover {
+    background: var(--muted);
+    color: var(--text);
+}
+
 .tag-filter, .type-filter {
     padding: 0.5rem 1rem;
     border: 1px solid var(--border);
@@ -457,6 +499,10 @@ h1, h2, h3, h4, h5, h6 {
     
     .tag-filters, .type-filters {
         justify-content: center;
+    }
+    
+    .search-container {
+        max-width: 100%;
     }
     
     .study-actions {

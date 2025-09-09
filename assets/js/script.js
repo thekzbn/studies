@@ -11,13 +11,14 @@ const modalBody = document.getElementById('modalBody');
 const modalClose = document.getElementById('modalClose');
 const modalBackdrop = document.getElementById('modalBackdrop');
 
-// Filter elements
-const tagFilters = document.querySelectorAll('.tag-filter');
+// Search elements
+const searchInput = document.getElementById('searchInput');
+const clearSearchBtn = document.getElementById('clearSearch');
 
 // State
 let allStudies = [];
 let filteredStudies = [];
-let activeTagFilter = 'all';
+let searchQuery = '';
 
 // Initialize the app
 document.addEventListener('DOMContentLoaded', () => {
@@ -30,10 +31,9 @@ async function initializeApp() {
 }
 
 function setupEventListeners() {
-    // Filter events
-    tagFilters.forEach(filter => {
-        filter.addEventListener('click', () => handleTagFilter(filter));
-    });
+    // Search events
+    searchInput.addEventListener('input', handleSearch);
+    clearSearchBtn.addEventListener('click', clearSearch);
 
     // Modal events
     modalClose.addEventListener('click', closeModal);
@@ -65,19 +65,36 @@ function showLoading(show) {
     emptyState.style.display = 'none';
 }
 
-function handleTagFilter(filterElement) {
-    // Update active filter
-    tagFilters.forEach(f => f.classList.remove('active'));
-    filterElement.classList.add('active');
+function handleSearch(event) {
+    searchQuery = event.target.value.toLowerCase().trim();
     
-    activeTagFilter = filterElement.dataset.tag;
-    applyFilters();
+    // Show/hide clear button
+    if (searchQuery) {
+        clearSearchBtn.style.display = 'block';
+    } else {
+        clearSearchBtn.style.display = 'none';
+    }
+    
+    applySearch();
 }
 
-function applyFilters() {
+function clearSearch() {
+    searchInput.value = '';
+    searchQuery = '';
+    clearSearchBtn.style.display = 'none';
+    applySearch();
+    searchInput.focus();
+}
+
+function applySearch() {
     filteredStudies = allStudies.filter(study => {
-        const tagMatch = activeTagFilter === 'all' || study.tag === activeTagFilter;
-        return tagMatch;
+        if (!searchQuery) return true;
+        
+        const titleMatch = study.title.toLowerCase().includes(searchQuery);
+        const descriptionMatch = study.description && study.description.toLowerCase().includes(searchQuery);
+        const tagMatch = study.tag.toLowerCase().includes(searchQuery);
+        
+        return titleMatch || descriptionMatch || tagMatch;
     });
     
     renderStudies();
@@ -87,6 +104,19 @@ function renderStudies() {
     if (filteredStudies.length === 0) {
         studiesGrid.style.display = 'none';
         emptyState.style.display = 'block';
+        
+        // Update empty state message based on search
+        const emptyTitle = emptyState.querySelector('h2');
+        const emptyText = emptyState.querySelector('p');
+        
+        if (searchQuery) {
+            emptyTitle.textContent = 'No studies found';
+            emptyText.textContent = `No studies match "${searchQuery}". Try a different search term.`;
+        } else {
+            emptyTitle.textContent = 'No studies found';
+            emptyText.textContent = 'Check back later for new content.';
+        }
+        
         return;
     }
 
