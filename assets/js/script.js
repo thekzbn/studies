@@ -1,5 +1,5 @@
 // Main script for the public studies portal
-import { firebase } from './firebase.js';
+import { supabaseService } from './supabase.js';
 
 // DOM elements
 const loadingElement = document.getElementById('loading');
@@ -48,7 +48,7 @@ function setupEventListeners() {
 async function loadStudies() {
     try {
         showLoading(true);
-        allStudies = await firebase.getStudies();
+        allStudies = await supabaseService.getStudies();
         filteredStudies = [...allStudies];
         renderStudies();
     } catch (error) {

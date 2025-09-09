@@ -1,5 +1,5 @@
 // Dashboard script for the studies portal
-import { firebase } from './firebase.js';
+import { supabaseService } from './supabase.js';
 
 // Configuration
 const DASHBOARD_PASSCODE = 'StudiesAdmin2025!'; // Change this passcode!
@@ -152,9 +152,9 @@ async function handleUploadSubmit(event) {
         
         // Upload all files to storage
         const [pdfURL, mdURL, docxURL] = await Promise.all([
-            firebase.uploadFile(pdfFile, pdfFileName),
-            firebase.uploadFile(mdFile, mdFileName),
-            firebase.uploadFile(docxFile, docxFileName)
+            supabaseService.uploadFile(pdfFile, pdfFileName),
+            supabaseService.uploadFile(mdFile, mdFileName),
+            supabaseService.uploadFile(docxFile, docxFileName)
         ]);
         
         // Create study data
@@ -169,7 +169,7 @@ async function handleUploadSubmit(event) {
         };
         
         // Save to Firestore
-        await firebase.addStudy(studyData);
+        await supabaseService.addStudy(studyData);
         
         showNotification('Study uploaded successfully!', 'success');
         
@@ -281,7 +281,7 @@ function setUploadLoading(loading) {
 
 async function loadStudies() {
     try {
-        allStudies = await firebase.getStudies();
+        allStudies = await supabaseService.getStudies();
         renderStudiesList();
     } catch (error) {
         console.error('Error loading studies:', error);
@@ -386,10 +386,10 @@ async function deleteStudy(studyId) {
         
         // Delete all files from storage
         const fileURLs = [study.pdfURL, study.mdURL, study.docxURL];
-        await firebase.deleteFiles(fileURLs);
+        await supabaseService.deleteFiles(fileURLs);
         
-        // Delete document from Firestore
-        await firebase.deleteStudy(studyId);
+        // Delete document from database
+        await supabaseService.deleteStudy(studyId);
         
         showNotification('Study deleted successfully', 'success');
         await loadStudies();
@@ -412,7 +412,7 @@ async function handleEditSubmit(event) {
             date: new Date(editDate.value)
         };
         
-        await firebase.updateStudy(studyId, updateData);
+        await supabaseService.updateStudy(studyId, updateData);
         
         showNotification('Study updated successfully', 'success');
         closeEditModal();
