@@ -1,6 +1,12 @@
 @import url("https://thekzbn.name.ng/assets/font/font.css");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css");
+
+@font-face {
+  font-family: thekzbnfont;
+  src: url(https://thekzbn.name.ng/assets/font/thekzbn_font.ttf);
+}
+
 /* Fonts + Colors */
 :root {
   --accent: #d6ad60;
@@ -197,3 +203,4 @@ footer {
 #theme-toggle:hover {
   transform: rotate(15deg);
 }
+
