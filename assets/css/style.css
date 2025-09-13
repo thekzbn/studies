@@ -1,11 +1,12 @@
+@import url("https://thekzbn.name.ng/assets/font/font.css");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css");
+
 /* Fonts + Colors */
 :root {
     --accent: #d6ad60;
     --bg: #fdfbf7;
     --text: #222;
 }
-
-@import url("https://thekzbn.name.ng/assets/font/font.css");
 
 /* Reset */
 body {
