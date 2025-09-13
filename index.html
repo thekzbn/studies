@@ -1,48 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <title>@thekzbn Research</title>
-    <!-- Your font bundle -->
-    <link rel="stylesheet" href="">
-    <!-- Site styles -->
-    <link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="UTF-8">
+  <title>@thekzbn Research</title>
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
-
 <body>
-    <!-- Hero Section -->
-    <section class="hero">
-        <h1>Out of ideas?</h1>
-        <p class="subtitle">Not here. This is where complex research lives.</p>
-        <div class="socials">
-            <a href="https://instagram.com/thekzbn.me" target="_blank">Instagram</a>
-            <a href="https://x.com/thekzbn_me" target="_blank">X</a>
-            <a href="https://thekzbn.name.ng" target="_blank">Website</a>
-        </div>
-    </section>
+  <!-- Dark Mode Toggle -->
+  <button id="theme-toggle" aria-label="Toggle dark mode">
+    <i class="fa-solid fa-moon"></i>
+  </button>
 
-    <!-- Papers Section -->
-    <main>
-        <h2 class="section-title">My Research Papers</h2>
-        <ul id="paper-list"></ul>
-    </main>
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Out of ideas?</h1>
+    <p class="subtitle">Not here. This is where complex research lives.</p>
+    <div class="socials">
+      <a href="https://instagram.com/thekzbn.me" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://x.com/thekzbn_me" target="_blank"><i class="fab fa-x-twitter"></i></a>
+      <a href="https://thekzbn.name.ng" target="_blank"><i class="fa-solid fa-globe"></i></a>
+    </div>
+  </section>
 
-    <!-- Footer -->
-    <footer>
-        <p>© <span id="year"></span> @thekzbn — All rights reserved</p>
-        <div class="socials">
-            <a href="https://instagram.com/thekzbn.me" target="_blank">Instagram</a> ·
-            <a href="https://x.com/thekzbn_me" target="_blank">X</a> ·
-            <a href="https://thekzbn.name.ng" target="_blank">Website</a>
-        </div>
-    </footer>
+  <!-- Papers Section -->
+  <main>
+    <h2 class="section-title">My Research Papers</h2>
+    <ul id="paper-list"></ul>
+  </main>
 
-    <script src="assets/js/main.js"></script>
-    <script>
-        // Dynamic year
-        document.getElementById("year").textContent = new Date().getFullYear();
-    </script>
+  <!-- Footer -->
+  <footer>
+    <p>© <span id="year"></span> @thekzbn — All rights reserved</p>
+    <div class="socials">
+      <a href="https://instagram.com/thekzbn.me" target="_blank"><i class="fab fa-instagram"></i></a> ·
+      <a href="https://x.com/thekzbn_me" target="_blank"><i class="fab fa-x-twitter"></i></a> ·
+      <a href="https://thekzbn.name.ng" target="_blank"><i class="fa-solid fa-globe"></i></a>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/theme.js"></script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
-
 </html>
