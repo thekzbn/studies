@@ -8,6 +8,7 @@ if (file) {
     .then(res => res.text())
     .then(md => {
       document.getElementById("paper-content").innerHTML = parseMarkdown(md);
+      hljs.highlightAll();
     })
     .catch(err => {
       document.getElementById("paper-content").textContent = "Error loading paper.";
