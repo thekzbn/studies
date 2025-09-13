@@ -1,93 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Studies Portal - @thekzbn</title>
-    <meta name="description" content="Academic studies and research documents collection at studies.thekzbn.name.ng">
+    <title>@thekzbn Research</title>
+    <!-- Your font bundle -->
+    <link rel="stylesheet" href="https://thekzbn.name.ng/assets/font/font.css">
+    <!-- Site styles -->
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
-    <header class="header">
-        <div class="container">
-            <h1 class="header-title">Studies Portal</h1>
-            <p class="header-subtitle">Academic Research & Study Materials</p>
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Out of ideas?</h1>
+        <p class="subtitle">Not here. This is where complex research lives.</p>
+        <div class="socials">
+            <a href="https://instagram.com/thekzbn.me" target="_blank">Instagram</a>
+            <a href="https://x.com/thekzbn_me" target="_blank">X</a>
+            <a href="https://thekzbn.name.ng" target="_blank">Website</a>
         </div>
-    </header>
+    </section>
 
-    <main class="main">
-        <div class="container">
-            <!-- Filter Controls -->
-            <section class="filters" aria-label="Filter studies">
-                <div class="filter-group">
-                    <label class="filter-label" for="searchInput">Search Studies:</label>
-                    <div class="search-container">
-                        <input type="text" id="searchInput" class="search-input" placeholder="Search by title, description, or tag..." />
-                        <button type="button" id="clearSearch" class="search-clear" style="display: none;">&times;</button>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Loading State -->
-            <div class="loading" id="loading">
-                <div class="loading-spinner"></div>
-                <p>Loading studies...</p>
-            </div>
-
-            <!-- Studies Grid -->
-            <section class="studies-grid" id="studiesGrid" aria-label="Studies collection">
-                <!-- Study cards will be populated by JavaScript -->
-            </section>
-
-            <!-- Empty State -->
-            <div class="empty-state" id="emptyState" style="display: none;">
-                <h2>No studies found</h2>
-                <p>Try adjusting your filters or check back later for new content.</p>
-            </div>
-        </div>
+    <!-- Papers Section -->
+    <main>
+        <h2 class="section-title">My Research Papers</h2>
+        <ul id="paper-list"></ul>
     </main>
 
-    <!-- Study Detail Modal -->
-    <div class="modal" id="studyModal" aria-hidden="true">
-        <div class="modal-backdrop" id="modalBackdrop"></div>
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title" id="modalTitle"></h2>
-                <button class="modal-close" id="modalClose" aria-label="Close modal">&times;</button>
-            </div>
-            <div class="modal-body" id="modalBody">
-                <!-- Content will be loaded here -->
-            </div>
-        </div>
-    </div>
-
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 @thekzbn Studies Portal. All rights reserved.</p>
+    <!-- Footer -->
+    <footer>
+        <p>© <span id="year"></span> @thekzbn — All rights reserved</p>
+        <div class="socials">
+            <a href="https://instagram.com/thekzbn.me" target="_blank">Instagram</a> ·
+            <a href="https://x.com/thekzbn_me" target="_blank">X</a> ·
+            <a href="https://thekzbn.name.ng" target="_blank">Website</a>
         </div>
     </footer>
 
-    <!-- Supabase SDK -->
-    <script type="module" src="assets/js/supabase.js"></script>
-    <script type="module" src="assets/js/script.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Dynamic year
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
 </body>
-</html>
 
-<!-- 
-Study Card Template (for reference):
-<article class="study-card" data-tag="AI enhanced" data-type="pdf">
-    <div class="study-header">
-        <h3 class="study-title">Sample Study Title</h3>
-        <span class="study-tag tag-ai-enhanced">AI Enhanced</span>
-    </div>
-    <p class="study-description">Brief description of the study content...</p>
-    <div class="study-meta">
-        <span class="study-date">Dec 15, 2025</span>
-    </div>
-    <div class="study-files">
-        <button class="btn btn-file btn-pdf" data-action="view" data-type="pdf">📄 View PDF</button>
-        <button class="btn btn-file btn-md" data-action="view" data-type="md">📝 View MD</button>
-        <button class="btn btn-file btn-docx" data-action="download" data-type="docx">📘 Word</button>
-    </div>
-</article>
--->
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Research Paper</title>
+    <!-- Your font bundle -->
+    <link rel="stylesheet" href="https://thekzbn.name.ng/assets/font/font.css">
+    <!-- Site styles -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <header class="paper-header">
+        <a href="index.html" class="back">← Back</a>
+        <h1 id="paper-title">Loading...</h1>
+    </header>
+
+    <main>
+        <article id="paper-content"></article>
+    </main>
+
+    <footer>
+        <p>© <span id="year"></span> @thekzbn</p>
+        <div class="socials">
+            <a href="https://instagram.com/thekzbn.me" target="_blank">Instagram</a> ·
+            <a href="https://x.com/thekzbn_me" target="_blank">X</a> ·
+            <a href="https://thekzbn.name.ng" target="_blank">Website</a>
+        </div>
+    </footer>
+
+    <script src="assets/js/markdown.js"></script>
+    <script src="assets/js/paper.js"></script>
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>
