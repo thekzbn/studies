@@ -1,28 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <title>Research Paper</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Read research papers published by @thekzbn.">
+  <title>Research Paper — @thekzbn</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+
   <!-- Styles -->
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
-<body>
-  <!-- Dark Mode Toggle -->
-  <button id="theme-toggle" aria-label="Toggle dark mode">
-    <i class="fa-solid fa-moon"></i>
-  </button>
 
-  <header class="paper-header">
-    <a href="index.html" class="back"><i class="fa-solid fa-arrow-left"></i> Back</a>
-    <h1 id="paper-title">Loading...</h1>
+<body>
+  <!-- Theme Toggle -->
+  <button id="theme-toggle" aria-label="Toggle theme"><i class="fa-solid fa-moon"></i></button>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">
+      <a href="index.html">@thekzbn</a>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="index.html#papers">Papers</a>
+      <a href="index.html#notes">Notes</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
   </header>
 
+  <!-- Paper Header -->
+  <section class="paper-header">
+    <a href="index.html" class="back"><i class="fa-solid fa-arrow-left"></i> Back</a>
+    <h1 id="paper-title">Loading...</h1>
+  </section>
+
+  <!-- Paper Content -->
   <main>
     <article id="paper-content"></article>
   </main>
 
+  <!-- Footer -->
   <footer>
-    <p>© <span id="year"></span> @thekzbn</p>
+    <p>© <span id="year"></span> @thekzbn — All rights reserved</p>
     <div class="socials">
       <a href="https://instagram.com/thekzbn.me" target="_blank"><i class="fab fa-instagram"></i></a> ·
       <a href="https://x.com/thekzbn_me" target="_blank"><i class="fab fa-x-twitter"></i></a> ·
@@ -34,6 +58,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/11.1.1/marked.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 
+  <!-- Custom Scripts -->
   <script src="assets/js/markdown.js"></script>
   <script src="assets/js/paper.js"></script>
   <script src="assets/js/theme.js"></script>
@@ -41,4 +66,5 @@
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
+
 </html>

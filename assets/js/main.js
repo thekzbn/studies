@@ -1,13 +1,31 @@
-// Add your research papers manually here:
-const papers = [
-    { title: "Examination Malpractice and Literacy in Nigeria: A Crisis of Educational Integrity", file: "_MConverter.eu_Examination Malpractice and Literacy in Nigeria A Crisis of Educational Integrity.edited.md" },
-    { title: "Quantum Systems for Youth Research", file: "paper2.md" }
-];
+// main.js — builds the paper list from window.PAPERS
+document.addEventListener('DOMContentLoaded', () => {
+  const listEl = document.getElementById('paper-list');
+  if (!listEl) return;
 
-const listEl = document.getElementById("paper-list");
+  if (!window.PAPERS || window.PAPERS.length === 0) {
+    listEl.innerHTML = '<li>No papers yet — add some to assets/js/papers.js</li>';
+    return;
+  }
 
-papers.forEach(paper => {
-    const li = document.createElement("li");
-    li.innerHTML = `<a href="paper.html?file=${encodeURIComponent(paper.file)}">${paper.title}</a>`;
+  window.PAPERS.forEach(paper => {
+    const li = document.createElement('li');
+    li.className = 'paper-item';
+
+    const a = document.createElement('a');
+    const href = `paper.html?file=${encodeURIComponent(paper.file)}&slug=${encodeURIComponent(paper.slug)}`;
+    a.href = href;
+    a.textContent = paper.title;
+    a.setAttribute('title', paper.title);
+    a.className = 'paper-link';
+
+    li.appendChild(a);
+
+    const meta = document.createElement('div');
+    meta.className = 'paper-meta';
+    meta.textContent = [paper.authors, paper.year].filter(Boolean).join(' · ');
+    li.appendChild(meta);
+
     listEl.appendChild(li);
+  });
 });
