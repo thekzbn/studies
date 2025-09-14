@@ -5,7 +5,7 @@ window.PAPERS = [
     file: "_MConverter.eu_Examination Malpractice and Literacy in Nigeria A Crisis of Educational Integrity.edited.md",
     slug: "examination-malpractice-nigeria",
     authors: "@thekzbn",
-    year: "2024"
+    year: "2025"
   },
   {
     title: "Quantum Systems for Youth Research",
