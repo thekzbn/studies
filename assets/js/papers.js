@@ -1,4 +1,4 @@
-// Central list of your projects. Keep this file updated as you add projects.
+// Central list of your research papers. Keep this file updated as you add publications.
 window.PAPERS = [
   {
     title: "Examination Malpractice and Literacy in Nigeria: A Crisis of Educational Integrity",
@@ -6,12 +6,5 @@ window.PAPERS = [
     slug: "examination-malpractice-nigeria",
     authors: "@thekzbn",
     year: "2025"
-  },
-  {
-    title: "Modern Portfolio Website",
-    file: "paper2.md",
-    slug: "portfolio-website",
-    authors: "@thekzbn",
-    year: "2024"
   }
 ];

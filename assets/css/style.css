@@ -3,8 +3,8 @@
    ========================= */
 :root {
   /* Light Theme (Default) */
-  --accent: #6366f1;
-  --accent-hover: #4f46e5;
+  --accent: #d6ad60;
+  --accent-hover: #c49a4d;
   --bg: #ffffff;
   --bg-secondary: #f8fafc;
   --bg-tertiary: #f1f5f9;
@@ -23,8 +23,8 @@
 
 /* Dark Theme */
 body.theme-dark {
-  --accent: #818cf8;
-  --accent-hover: #6366f1;
+  --accent: #d6ad60;
+  --accent-hover: #b2873a;
   --bg: #0f172a;
   --bg-secondary: #1e293b;
   --bg-tertiary: #334155;
@@ -166,6 +166,72 @@ body.theme-minimalist {
 }
 
 /* =========================
+   PREMIUM ANIMATIONS & EFFECTS
+   ========================= */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: var(--shadow-lg), 0 0 0 rgba(214, 173, 96, 0.3);
+  }
+  50% {
+    box-shadow: var(--shadow-lg), 0 0 25px rgba(214, 173, 96, 0.6);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: 200px 0;
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-slideInLeft {
+  animation: slideInLeft 0.6s ease-out forwards;
+}
+
+/* Loading spinner for papers */
+.loading-spinner {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--border);
+  border-radius: 50%;
+  border-top-color: var(--accent);
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* =========================
    RESET & BASE
    ========================= */
 * {
@@ -242,11 +308,15 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
 }
 
 .theme-toggle:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
   background: var(--accent-hover);
+  box-shadow: var(--shadow-lg), 0 0 20px rgba(214, 173, 96, 0.4);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 .theme-dropdown {
@@ -401,6 +471,20 @@ body.theme-minimalist .navbar {
   max-width: var(--max-width);
   margin: 0 auto;
   background: linear-gradient(135deg, var(--bg) 0%, var(--bg-secondary) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(45deg, transparent 30%, rgba(214, 173, 96, 0.1) 50%, transparent 70%);
+  animation: shimmer 3s ease-in-out infinite;
+  pointer-events: none;
 }
 
 .hero h1 {
@@ -479,6 +563,80 @@ main {
   height: 3px;
   background: var(--accent);
   border-radius: 2px;
+}
+
+/* =========================
+   SEARCH BAR
+   ========================= */
+.search-container {
+  max-width: 600px;
+  margin: 0 auto 3rem;
+  position: relative;
+}
+
+.search-bar {
+  width: 100%;
+  padding: 1rem 1rem 1rem 3rem;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-secondary);
+  color: var(--text);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.search-bar:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(214, 173, 96, 0.1);
+}
+
+.search-bar::placeholder {
+  color: var(--text-muted);
+}
+
+.search-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  pointer-events: none;
+}
+
+/* =========================
+   READING PROGRESS INDICATOR
+   ========================= */
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent) 0%, var(--accent-hover) 100%);
+  z-index: 1000;
+  transition: width 0.1s ease;
+  box-shadow: 0 2px 10px rgba(214, 173, 96, 0.3);
+}
+
+.paper-stats {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.paper-stat {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 /* =========================
@@ -884,6 +1042,14 @@ body.theme-luxury .section-title {
 /* =========================
    RESPONSIVE DESIGN
    ========================= */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .theme-selector {
+    bottom: 1.5rem;
+    right: 1.5rem;
+    top: auto;
+  }
+}
+
 @media (max-width: 768px) {
   .theme-selector {
     top: 1rem;
