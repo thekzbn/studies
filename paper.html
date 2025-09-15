@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Read research papers published by @thekzbn.">
-  <title>Research Paper — @thekzbn</title>
+  <title>Project Details — @thekzbn</title>
 
   <!-- Favicon -->
   <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
@@ -16,8 +16,52 @@
 </head>
 
 <body>
-  <!-- Theme Toggle -->
-  <button id="theme-toggle" aria-label="Toggle theme"><i class="fa-solid fa-moon"></i></button>
+  <!-- Theme Selector -->
+  <div class="theme-selector">
+    <button id="theme-toggle" aria-label="Toggle theme"><i class="fa-solid fa-sun"></i></button>
+    <div id="theme-dropdown" class="theme-dropdown">
+      <button class="theme-option active" data-theme="light">
+        <div class="theme-preview" style="background: #6366f1;"></div>
+        <span>Light</span>
+      </button>
+      <button class="theme-option" data-theme="dark">
+        <div class="theme-preview" style="background: #818cf8;"></div>
+        <span>Dark</span>
+      </button>
+      <button class="theme-option" data-theme="amoled">
+        <div class="theme-preview" style="background: #00ff88;"></div>
+        <span>AMOLED Black</span>
+      </button>
+      <button class="theme-option" data-theme="neon">
+        <div class="theme-preview" style="background: #ff0080;"></div>
+        <span>Neon Glow</span>
+      </button>
+      <button class="theme-option" data-theme="cyberpunk">
+        <div class="theme-preview" style="background: #00ffff;"></div>
+        <span>Cyberpunk</span>
+      </button>
+      <button class="theme-option" data-theme="pastel">
+        <div class="theme-preview" style="background: #ff9a9e;"></div>
+        <span>Pastel</span>
+      </button>
+      <button class="theme-option" data-theme="luxury">
+        <div class="theme-preview" style="background: #ffd700;"></div>
+        <span>Luxury Gold</span>
+      </button>
+      <button class="theme-option" data-theme="ocean">
+        <div class="theme-preview" style="background: #0ea5e9;"></div>
+        <span>Ocean Blue</span>
+      </button>
+      <button class="theme-option" data-theme="sunset">
+        <div class="theme-preview" style="background: #f97316;"></div>
+        <span>Sunset Glow</span>
+      </button>
+      <button class="theme-option" data-theme="minimalist">
+        <div class="theme-preview" style="background: #000000;"></div>
+        <span>Minimalist</span>
+      </button>
+    </div>
+  </div>
 
   <!-- Navbar -->
   <header class="navbar">
@@ -26,8 +70,7 @@
     </div>
     <nav>
       <a href="index.html">Home</a>
-      <a href="index.html#papers">Papers</a>
-      <a href="index.html#notes">Notes</a>
+      <a href="index.html#projects">Projects</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
     </nav>
@@ -39,14 +82,14 @@
     <h1 id="paper-title">Loading...</h1>
   </section>
 
-  <!-- Paper Content -->
+  <!-- Project Content -->
   <main>
     <article id="paper-content"></article>
   </main>
 
   <!-- Footer -->
   <footer>
-    <p>© <span id="year"></span> @thekzbn — All rights reserved</p>
+    <p>© <span id="year"></span> @thekzbn — Web Developer</p>
     <div class="socials">
       <a href="https://instagram.com/thekzbn.me" target="_blank"><i class="fab fa-instagram"></i></a> ·
       <a href="https://x.com/thekzbn_me" target="_blank"><i class="fab fa-x-twitter"></i></a> ·

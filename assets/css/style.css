@@ -1,18 +1,16 @@
-@import url("https://thekzbn.name.ng/assets/font/font.css");
-@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css");
-@import url("https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css");
-
 /* =========================
-   RESET & VARIABLES
+   THEME VARIABLES
    ========================= */
 :root {
-  --accent: #c9a96e;
-  --accent-hover: #b8956a;
-  --bg: #fefefe;
-  --bg-secondary: #f8f9fa;
-  --text: #1a1a1a;
-  --text-secondary: #4a5568;
-  --text-muted: #718096;
+  /* Light Theme (Default) */
+  --accent: #6366f1;
+  --accent-hover: #4f46e5;
+  --bg: #ffffff;
+  --bg-secondary: #f8fafc;
+  --bg-tertiary: #f1f5f9;
+  --text: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
   --border: #e2e8f0;
   --border-light: #f1f5f9;
   --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
@@ -23,20 +21,152 @@
   --content-width: 800px;
 }
 
-body.dark {
-  --bg: #0f0f0f;
-  --bg-secondary: #1a1a1a;
-  --text: #f7fafc;
-  --text-secondary: #cbd5e0;
-  --text-muted: #a0aec0;
-  --border: #2d3748;
-  --border-light: #1a202c;
+/* Dark Theme */
+body.theme-dark {
+  --accent: #818cf8;
+  --accent-hover: #6366f1;
+  --bg: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-tertiary: #334155;
+  --text: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --border: #334155;
+  --border-light: #1e293b;
   --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
   --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
 }
 
+/* AMOLED Black Theme */
+body.theme-amoled {
+  --accent: #00ff88;
+  --accent-hover: #00cc6a;
+  --bg: #000000;
+  --bg-secondary: #111111;
+  --bg-tertiary: #1a1a1a;
+  --text: #ffffff;
+  --text-secondary: #cccccc;
+  --text-muted: #888888;
+  --border: #333333;
+  --border-light: #222222;
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.8), 0 2px 4px -1px rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.9), 0 10px 10px -5px rgba(0, 0, 0, 0.7);
+}
+
+/* Neon Glow Theme */
+body.theme-neon {
+  --accent: #ff0080;
+  --accent-hover: #e6006b;
+  --bg: #0a0a0a;
+  --bg-secondary: #1a0a1a;
+  --bg-tertiary: #2a1a2a;
+  --text: #ffffff;
+  --text-secondary: #ff80c0;
+  --text-muted: #cc66a0;
+  --border: #ff0080;
+  --border-light: #330020;
+  --shadow: 0 0 20px rgba(255, 0, 128, 0.3), 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 0 40px rgba(255, 0, 128, 0.4), 0 20px 25px -5px rgba(0, 0, 0, 0.6);
+}
+
+/* Cyberpunk Theme */
+body.theme-cyberpunk {
+  --accent: #00ffff;
+  --accent-hover: #00cccc;
+  --bg: #0d1117;
+  --bg-secondary: #161b22;
+  --bg-tertiary: #21262d;
+  --text: #c9d1d9;
+  --text-secondary: #8b949e;
+  --text-muted: #6e7681;
+  --border: #30363d;
+  --border-light: #21262d;
+  --shadow: 0 0 20px rgba(0, 255, 255, 0.2), 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 0 40px rgba(0, 255, 255, 0.3), 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+}
+
+/* Pastel Theme */
+body.theme-pastel {
+  --accent: #ff9a9e;
+  --accent-hover: #ff7a7f;
+  --bg: #fef7ff;
+  --bg-secondary: #fdf2f8;
+  --bg-tertiary: #fce7f3;
+  --text: #374151;
+  --text-secondary: #6b7280;
+  --text-muted: #9ca3af;
+  --border: #f3e8ff;
+  --border-light: #fdf2f8;
+  --shadow: 0 4px 6px -1px rgba(255, 154, 158, 0.2), 0 2px 4px -1px rgba(255, 154, 158, 0.1);
+  --shadow-lg: 0 20px 25px -5px rgba(255, 154, 158, 0.3), 0 10px 10px -5px rgba(255, 154, 158, 0.2);
+}
+
+/* Luxury Gold Theme */
+body.theme-luxury {
+  --accent: #ffd700;
+  --accent-hover: #ffed4e;
+  --bg: #0f0f0f;
+  --bg-secondary: #1a1a1a;
+  --bg-tertiary: #2a2a2a;
+  --text: #ffffff;
+  --text-secondary: #d4af37;
+  --text-muted: #b8860b;
+  --border: #333333;
+  --border-light: #1a1a1a;
+  --shadow: 0 4px 6px -1px rgba(255, 215, 0, 0.3), 0 2px 4px -1px rgba(255, 215, 0, 0.2);
+  --shadow-lg: 0 20px 25px -5px rgba(255, 215, 0, 0.4), 0 10px 10px -5px rgba(255, 215, 0, 0.3);
+}
+
+/* Ocean Blue Theme */
+body.theme-ocean {
+  --accent: #0ea5e9;
+  --accent-hover: #0284c7;
+  --bg: #f0f9ff;
+  --bg-secondary: #e0f2fe;
+  --bg-tertiary: #bae6fd;
+  --text: #0c4a6e;
+  --text-secondary: #0369a1;
+  --text-muted: #0284c7;
+  --border: #7dd3fc;
+  --border-light: #e0f2fe;
+  --shadow: 0 4px 6px -1px rgba(14, 165, 233, 0.2), 0 2px 4px -1px rgba(14, 165, 233, 0.1);
+  --shadow-lg: 0 20px 25px -5px rgba(14, 165, 233, 0.3), 0 10px 10px -5px rgba(14, 165, 233, 0.2);
+}
+
+/* Sunset Glow Theme */
+body.theme-sunset {
+  --accent: #f97316;
+  --accent-hover: #ea580c;
+  --bg: #fff7ed;
+  --bg-secondary: #ffedd5;
+  --bg-tertiary: #fed7aa;
+  --text: #9a3412;
+  --text-secondary: #c2410c;
+  --text-muted: #ea580c;
+  --border: #fdba74;
+  --border-light: #ffedd5;
+  --shadow: 0 4px 6px -1px rgba(249, 115, 22, 0.2), 0 2px 4px -1px rgba(249, 115, 22, 0.1);
+  --shadow-lg: 0 20px 25px -5px rgba(249, 115, 22, 0.3), 0 10px 10px -5px rgba(249, 115, 22, 0.2);
+}
+
+/* Minimalist Theme */
+body.theme-minimalist {
+  --accent: #000000;
+  --accent-hover: #333333;
+  --bg: #ffffff;
+  --bg-secondary: #fafafa;
+  --bg-tertiary: #f5f5f5;
+  --text: #000000;
+  --text-secondary: #666666;
+  --text-muted: #999999;
+  --border: #e0e0e0;
+  --border-light: #f5f5f5;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
 /* =========================
-   BASE
+   RESET & BASE
    ========================= */
 * {
   margin: 0;
@@ -54,7 +184,7 @@ body {
   color: var(--text);
   line-height: 1.7;
   font-size: 16px;
-  transition: background 0.3s ease, color 0.3s ease;
+  transition: all 0.3s ease;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -88,6 +218,91 @@ a:hover {
 }
 
 /* =========================
+   THEME SELECTOR
+   ========================= */
+.theme-selector {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  z-index: 2000;
+}
+
+.theme-toggle {
+  background: var(--accent);
+  border: none;
+  padding: 1rem;
+  border-radius: 50%;
+  color: white;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: var(--shadow-lg);
+  transition: all 0.3s ease;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+  background: var(--accent-hover);
+}
+
+.theme-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 0.5rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  min-width: 200px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+}
+
+.theme-dropdown.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.theme-option {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  color: var(--text);
+  font-family: inherit;
+}
+
+.theme-option:hover {
+  background: var(--bg-tertiary);
+}
+
+.theme-option.active {
+  background: var(--accent);
+  color: white;
+}
+
+.theme-preview {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+}
+
+/* =========================
    NAVBAR
    ========================= */
 .navbar {
@@ -97,7 +312,7 @@ a:hover {
   padding: 1.5rem 2rem;
   position: sticky;
   top: 0;
-  background: rgba(254, 254, 254, 0.95);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border-light);
   z-index: 1000;
@@ -105,8 +320,29 @@ a:hover {
   margin: 0 auto;
 }
 
-body.dark .navbar {
-  background: rgba(15, 15, 15, 0.95);
+body.theme-dark .navbar,
+body.theme-amoled .navbar,
+body.theme-neon .navbar,
+body.theme-cyberpunk .navbar,
+body.theme-luxury .navbar {
+  background: rgba(15, 23, 42, 0.95);
+}
+
+body.theme-pastel .navbar {
+  background: rgba(254, 247, 255, 0.95);
+}
+
+body.theme-ocean .navbar {
+  background: rgba(240, 249, 255, 0.95);
+}
+
+body.theme-sunset .navbar {
+  background: rgba(255, 247, 237, 0.95);
+}
+
+body.theme-minimalist .navbar {
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: none;
 }
 
 .navbar .logo a {
@@ -307,55 +543,6 @@ main {
   color: var(--text-muted);
   font-size: 0.9rem;
   font-weight: 500;
-}
-
-/* =========================
-   NOTES SECTION
-   ========================= */
-#notes {
-  margin: 6rem 0;
-}
-
-.notes-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  max-width: var(--content-width);
-  margin: 0 auto;
-}
-
-.note-card {
-  background: var(--bg-secondary);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 2rem;
-  transition: all 0.3s ease;
-}
-
-.note-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
-  border-color: var(--accent);
-}
-
-.note-card h3 {
-  font-size: 1.25rem;
-  margin-bottom: 1rem;
-  color: var(--text);
-}
-
-.note-card p {
-  color: var(--text-secondary);
-  margin-bottom: 1.5rem;
-  font-size: 0.95rem;
-}
-
-.note-card a {
-  color: var(--accent);
-  font-weight: 500;
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
 }
 
 /* =========================
@@ -663,38 +850,52 @@ footer .socials a:hover {
 }
 
 /* =========================
-   THEME TOGGLE
+   SPECIAL THEME EFFECTS
    ========================= */
-#theme-toggle {
-  position: fixed;
-  top: 2rem;
-  right: 2rem;
-  background: var(--accent);
-  border: none;
-  padding: 1rem;
-  border-radius: 50%;
-  color: white;
-  font-size: 1.1rem;
-  cursor: pointer;
-  box-shadow: var(--shadow-lg);
-  transition: all 0.3s ease;
-  z-index: 2000;
-  width: 56px;
-  height: 56px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+
+/* Neon Glow Effects */
+body.theme-neon .hero h1,
+body.theme-neon .section-title {
+  text-shadow: 0 0 20px var(--accent);
 }
 
-#theme-toggle:hover {
-  transform: rotate(180deg) scale(1.1);
-  background: var(--accent-hover);
+body.theme-neon #paper-list li:hover,
+body.theme-neon .contact-list a:hover {
+  box-shadow: 0 0 30px rgba(255, 0, 128, 0.4);
+}
+
+/* Cyberpunk Effects */
+body.theme-cyberpunk .hero h1,
+body.theme-cyberpunk .section-title {
+  text-shadow: 0 0 10px var(--accent);
+}
+
+body.theme-cyberpunk #paper-list li:hover,
+body.theme-cyberpunk .contact-list a:hover {
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
+}
+
+/* Luxury Gold Effects */
+body.theme-luxury .hero h1,
+body.theme-luxury .section-title {
+  text-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
 }
 
 /* =========================
    RESPONSIVE DESIGN
    ========================= */
 @media (max-width: 768px) {
+  .theme-selector {
+    top: 1rem;
+    right: 1rem;
+  }
+  
+  .theme-toggle {
+    width: 48px;
+    height: 48px;
+    font-size: 1rem;
+  }
+  
   .navbar {
     padding: 1rem;
     flex-direction: column;
@@ -738,12 +939,7 @@ footer .socials a:hover {
     margin: 0 auto;
   }
   
-  .notes-grid {
-    grid-template-columns: 1fr;
-  }
-  
   #paper-list li,
-  .note-card,
   article,
   .contact-form {
     padding: 1.5rem;
@@ -751,14 +947,6 @@ footer .socials a:hover {
   
   .paper-header h1 {
     font-size: 2rem;
-  }
-  
-  #theme-toggle {
-    top: 1rem;
-    right: 1rem;
-    width: 48px;
-    height: 48px;
-    font-size: 1rem;
   }
 }
 
